@@ -1,0 +1,8 @@
+echo "Starting Nginx..."
+sudo nginx
+
+echo "Starting MySQL..."
+mysqld_safe &
+
+echo "Starting FCGI..."
+php-fpm &
