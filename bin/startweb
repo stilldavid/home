@@ -6,3 +6,6 @@ mysqld_safe &
 
 echo "Starting FCGI..."
 php-fpm &
+
+echo "Startging MongoDB..."
+mongod run --config /usr/local/Cellar/mongodb/1.8.2-x86_64/mongod.conf

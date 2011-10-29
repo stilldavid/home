@@ -1,7 +1,20 @@
 [alias]
-	st = status
-	br = branch
-	co = checkout
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
+  df = diff
+  lg = log -p
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+
 [user]
-	name = David Stillman
-	email = me@stilldavid.com
+  name = Dave Stillman
+  email = dave@sparkfun.com
+
+[color]
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+
