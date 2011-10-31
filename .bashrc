@@ -1,5 +1,31 @@
 # .bashrc
 
+case "$HOSTNAME" in
+  'karl')
+    PR_HOST_COLOR=$PR_GREEN;
+    CODE_DIR='~/Code/sparkfun/';
+    ;;
+
+  'dave-dev')
+    PR_HOST_COLOR=$PR_GREEN;
+    CODE_DIR='/var/www/';
+    ;;
+  'spino')
+    PR_HOST_COLOR=$PR_RED;
+    CODE_DIR='/var/www/';
+    ;;
+  'seismo')
+    PR_HOST_COLOR=$PR_RED;
+    CODE_DIR='/var/www/';
+    ;;
+  'tyranno')
+    PR_HOST_COLOR=$PR_RED;
+    ;;
+  *)
+    PR_HOST_COLOR=$PR_BLUE;
+    ;;
+esac
+
 # User specific aliases and functions
 
 # ruby/rails stuff
@@ -9,21 +35,10 @@ alias sc='./script/console'
 alias ls='/bin/ls -Gp';
 alias ll='/bin/ls -alGp';
 alias l='/bin/ls -lFGp';
-alias sls='sudo /bin/ls --color=auto';
-alias sll='sudo /bin/ls -al --color=auto';
-alias psa='ps faxo pid,user,nice,%cpu,%mem,etime,cputime,args';
-alias psg='ps wfaxo pid,user,nice,%cpu,%mem,etime,cputime,args | egrep -i';
-#alias hg='history | egrep -i';
-alias cx='chmod 755'; 
-alias cz='chmod 644'; 
-alias cu='chmod 600'; 
-alias cr='chown root:root'; 
-alias tmail='sudo tail -n 50 -f /var/log/maillog'; 
-alias tlog='sudo tail -n 50 -f /var/log/messages'; 
-alias tsecure='sudo tail -n 50 -f /var/log/secure';
-alias tweba='sudo tail -n 50 -f /var/log/httpd/access_log';
-alias twebe='sudo tail -n 50 -f /var/log/httpd/error_log';
-alias dua='du -sk {.[a-z],}* | sort -rn';
+alias cx='chmod 755';
+alias cz='chmod 644';
+alias cu='chmod 600';
+alias cr='chown root:root';
 alias svi='/usr/bin/sudo vim';
 alias sudo='sudo -H';
 alias sss='/usr/bin/sudo su -';
@@ -32,18 +47,9 @@ alias sss='/usr/bin/sudo su -';
 alias tunh="ssh -fND localhost:1337 stilldavid.dyndns.org";
 alias gcb='grep -r "$1" ~/Code/live/codebase/ | grep -v "svn"';
 alias tsite='tail -f ~/Code/live/log/site_log';
-alias cds='cd ~/Code/sparkfun/';
+alias cds='cd $CODE_DIR';
 alias cdl='cd /usr/local/';
 alias bell='echo -n ';
-
-function gl()
-{
-  if [[ -z $1 ]]; then
-    echo "Usage: gl SEARCHTERM";
-  else
-    ack -a "$1" | less
-  fi
-}
 
 # git stuff
 alias gd='git diff --color'
