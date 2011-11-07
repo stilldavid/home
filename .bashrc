@@ -32,6 +32,9 @@ esac
 alias ss='./script/server'
 alias sc='./script/console'
 
+alias ack='ack-grep'
+alias ai='ack-grep -i'
+
 alias ls='/bin/ls -Gp';
 alias ll='/bin/ls -alGp';
 alias l='/bin/ls -lFGp';
