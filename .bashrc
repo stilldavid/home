@@ -57,6 +57,7 @@ alias bell='echo -n ';
 # git stuff
 alias gd='git diff --color'
 alias gs='git status'
+alias g='git'
 
 # Move files to the trash.
 function trash ()
