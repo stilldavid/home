@@ -1,0 +1,10 @@
+In case I forget this, which I  always do, here's how to clone into ~ without mv'ing a bunch of stuff:
+
+  cd
+  git init
+  git remote add origin remote_machine:~brentg/my_setup.git
+  git fetch
+  git branch master origin/master
+  git checkout master
+
+git probably won't overwrite files, so make sure the dir is clean first.

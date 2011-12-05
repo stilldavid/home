@@ -10,6 +10,10 @@ case "$HOSTNAME" in
     PR_HOST_COLOR=$PR_GREEN;
     CODE_DIR='/var/www/';
     ;;
+  'spiff')
+    PR_HOST_COLOR=$PR_GREEN;
+    CODE_DIR='~/Code/sparkfun/';
+    ;;
   'spino')
     PR_HOST_COLOR=$PR_RED;
     CODE_DIR='/var/www/';
@@ -53,6 +57,7 @@ alias tsite='tail -f ~/Code/live/log/site_log';
 alias cds='cd $CODE_DIR';
 alias cdl='cd /usr/local/';
 alias bell='echo -n ';
+alias sg='cd $CODE_DIR; ./burn sparkgen; cd -'
 
 # git stuff
 alias gd='git diff --color'
