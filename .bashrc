@@ -58,6 +58,7 @@ alias cds='cd $CODE_DIR';
 alias cdl='cd /usr/local/';
 alias bell='echo -n ';
 alias sg='cd $CODE_DIR; ./burn sparkgen; cd -'
+alias dev='ssh -A dave-dev'
 
 # git stuff
 alias gd='git diff --color'

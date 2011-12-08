@@ -6,7 +6,7 @@ filetype indent on
 
 set list
 set lcs=tab:>.     "show tabs
-set lcs+=trail:>   "show trailing spaces
+set lcs+=trail:·   "show trailing spaces
 set lcs+=extends:# "show line wrap
 set lcs+=nbsp:.    "show non breaking spaces
 
