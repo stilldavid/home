@@ -1,32 +1,42 @@
 # .bashrc
 
+        RED="\[\033[1;31m\]"
+     YELLOW="\[\033[1;33m\]"
+      GREEN="\[\033[1;32m\]"
+       BLUE="\[\033[1;34m\]"
+  LIGHT_RED="\[\033[1;31m\]"
+LIGHT_GREEN="\[\033[1;32m\]"
+      WHITE="\[\033[1;37m\]"
+ LIGHT_GRAY="\[\033[1;37m\]"
+ COLOR_NONE="\[\e[0m\]"
+
 case "$HOSTNAME" in
   'karl')
-    PR_HOST_COLOR=$PR_GREEN;
+    PR_HOST_COLOR=$WHITE;
     CODE_DIR='~/Code/sparkfun/';
     ;;
 
   'dave-dev')
-    PR_HOST_COLOR=$PR_GREEN;
+    PR_HOST_COLOR=$WHITE;
     CODE_DIR='/var/www/';
     ;;
-  'spiff')
-    PR_HOST_COLOR=$PR_GREEN;
+  'spiff.local')
+    PR_HOST_COLOR=$WHITE;
     CODE_DIR='~/Code/sparkfun/';
     ;;
   'spino')
-    PR_HOST_COLOR=$PR_RED;
+    PR_HOST_COLOR=$RED;
     CODE_DIR='/var/www/';
     ;;
   'seismo')
-    PR_HOST_COLOR=$PR_RED;
+    PR_HOST_COLOR=$RED;
     CODE_DIR='/var/www/';
     ;;
   'tyranno')
-    PR_HOST_COLOR=$PR_RED;
+    PR_HOST_COLOR=$RED;
     ;;
   *)
-    PR_HOST_COLOR=$PR_BLUE;
+    PR_HOST_COLOR=$BLUE;
     ;;
 esac
 
@@ -80,13 +90,52 @@ function trash ()
 [[ -f ~/.bashrc-local ]] && . ~/.bashrc-local;
 
 function parse_git_branch {
-  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-    echo "("${ref#refs/heads/}")"
+
+  git rev-parse --git-dir &> /dev/null
+  git_status="$(git status 2> /dev/null)"
+  branch_pattern="^# On branch ([^${IFS}]*)"
+  remote_pattern="# Your branch is (.*) of"
+  diverge_pattern="# Your branch and (.*) have diverged"
+  if [[ ! ${git_status}} =~ "working directory clean" ]]; then
+    state="${RED}⚡"
+  fi
+  # add an else if or two here if you want to get more specific
+  if [[ ${git_status} =~ ${remote_pattern} ]]; then
+    if [[ ${BASH_REMATCH[1]} == "ahead" ]]; then
+      remote="${YELLOW}↑"
+    else
+      remote="${YELLOW}↓"
+    fi
+  fi
+  if [[ ${git_status} =~ ${diverge_pattern} ]]; then
+    remote="${YELLOW}↕"
+  fi
+  if [[ ${git_status} =~ ${branch_pattern} ]]; then
+    branch=${BASH_REMATCH[1]}
+    echo " (${branch})${remote}${state}"
+  fi
 }
 
-RED="\[\033[0;31m\]"
-YELLOW="\[\033[0;33m\]"
-GREEN="\[\033[0;32m\]"
+function prompt_func() {
+    previous_return_value=$?;
+    git_status="$(git status 2> /dev/null)"
+    #prompt="${TITLEBAR}${BLUE}[${YELLOW}\W${GREEN}$(parse_git_branch)${BLUE}]${COLOR_NONE} "
+    prompt="${TITLEBAR}${BLUE}[${PR_HOST_COLOR}\h${BLUE}]${BLUE}[${YELLOW}\W${GREEN}$(parse_git_branch)${BLUE}]${COLOR_NONE} "
 
-PS1="[\u@\h:\w]\$(parse_git_branch)\$ "
+    if test $previous_return_value -eq 0
+    then
+        PS1="${prompt}➔ "
+    else
+        PS1="${prompt}${RED}➔${COLOR_NONE} "
+    fi
+
+    if [ "$git_status" == "" ]; then
+        PS1="${BLUE}[${PR_HOST_COLOR}\u@\h${BLUE}] ${YELLOW}\W ${BLUE}\$ ${COLOR_NONE}"
+    fi
+}
+
+PROMPT_COMMAND=prompt_func
+
+
+# PS1="[\u@\h:\w]\$(parse_git_branch)\$ "
 
