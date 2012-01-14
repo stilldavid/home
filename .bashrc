@@ -43,8 +43,7 @@ esac
 # User specific aliases and functions
 
 # ruby/rails stuff
-alias ss='./script/server'
-alias sc='./script/console'
+alias r='rails'
 
 alias ack='ack-grep'
 alias ai='ack-grep -i'
