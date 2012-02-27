@@ -99,6 +99,10 @@ map <F3> :call FindInNERDTree()<CR>
 :imap <C-S-D> :CommandT<CR>
 :imap <C-S-D> <Esc>:CommandT<CR>
 
+" don't deselect indentation
+:vnoremap < <gv
+:vnoremap > >gv
+
 " oh man, this is useful
 nnoremap ; :
 
