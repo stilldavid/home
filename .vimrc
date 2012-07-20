@@ -70,6 +70,9 @@ nnoremap <leader>a :Ack
 nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:let @/=''<CR>
 nnoremap <leader>F /{/+1<CR>vi{:sort<CR>
 
+" Map <CTRL>-O to run PHP parser check
+noremap <C-O> :!php -l %<CR>
+
 " jj to get out of insert
 inoremap jj <ESC>
 
