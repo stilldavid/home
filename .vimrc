@@ -87,6 +87,12 @@ au FileType make setlocal noexpandtab
 " split lines under the cursor
 map K i<CR><Esc>g;
 
+" split window navigation (ctrl-j/k)
+map <C-J> <C-W>j
+map <C-K> <C-W>k
+map <C-H> <C-W>h
+map <C-L> <C-W>l
+
 map <F2> :NERDTreeToggle<CR>
 map <F3> :call FindInNERDTree()<CR>
 
