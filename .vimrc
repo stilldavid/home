@@ -126,11 +126,12 @@ au BufWinLeave notes mkview
 au BufWinEnter notes silent loadview
 
 " colorscheme Murphy
-colorscheme solarized
+colorscheme Tomorrow-Night
 if has("gui_macvim")
   set transparency=5
   set background=dark
 else
+  colorscheme Tomorrow
   set background=light
 endif
 
