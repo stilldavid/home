@@ -138,3 +138,4 @@ PROMPT_COMMAND=prompt_func
 
 # PS1="[\u@\h:\w]\$(parse_git_branch)\$ "
 
+export GEM_HOME='/usr/local'
