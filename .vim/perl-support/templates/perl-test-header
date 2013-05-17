@@ -1,4 +1,0 @@
-use strict;
-use warnings;
-
-use Test::Simple tests => 1; # last test to print
