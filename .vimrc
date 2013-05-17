@@ -1,5 +1,58 @@
 set nocompatible
 
+" this sets up vundle to manage plugins
+" https://github.com/gmarik/vundle
+" to use:
+"   mkdir -p ~/.vim/bundle
+"   git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+"   vim +BundleInstall
+
+" <vundle-config>
+
+  filetype off
+
+  set rtp+=~/.vim/bundle/vundle/
+  call vundle#rc()
+
+  " let Vundle manage Vundle - required
+  Bundle 'gmarik/vundle'
+
+  " really nice file tree:
+  Bundle 'scrooloose/nerdtree'
+
+  " align text vertically on a string:
+  Bundle 'Align'
+
+  " wrap common version control commands:
+  Bundle 'vcscommand.vim'
+  Bundle 'tpope/vim-fugitive'
+
+  " commands for surrounding chars
+  Bundle 'tpope/vim-surround'
+  Bundle 'tpope/vim-repeat'
+
+  " a bunch of colorschemes + a gui menu listing them
+  Bundle 'altercation/vim-colors-solarized'
+  Bundle 'chriskempson/vim-tomorrow-theme.git'
+  Bundle 'ColorSchemeMenuMaker'
+
+  " match lots of things
+  Bundle 'edsono/vim-matchit'
+
+  Bundle "MarcWeber/vim-addon-mw-utils"
+  Bundle "tomtom/tlib_vim"
+  Bundle "honza/vim-snippets"
+
+  Bundle "garbas/vim-snipmate"
+
+  Bundle 'L9'
+  Bundle 'FuzzyFinder'
+  Bundle 'mileszs/ack.vim'
+  " Bundle 'surround.vim'
+  Bundle 'ctrlp.vim'
+
+" </vundle-config>
+
 syntax on
 filetype plugin on
 filetype indent on
