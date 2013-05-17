@@ -41,7 +41,7 @@ set nocompatible
 
   Bundle "MarcWeber/vim-addon-mw-utils"
   Bundle "tomtom/tlib_vim"
-  Bundle "honza/vim-snippets"
+  Bundle "stilldavid/vim-snippets"
 
   Bundle "garbas/vim-snipmate"
 
