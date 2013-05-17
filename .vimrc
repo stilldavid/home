@@ -149,7 +149,7 @@ map <C-H> <C-W>h
 map <C-L> <C-W>l
 
 map <F2> :NERDTreeToggle<CR>
-map <F3> :call FindInNERDTree()<CR>
+map <F3> :NERDTreeFind<CR>
 
 " tab navigation like firefox
 :nmap <C-S-tab> :tabprevious<CR>
