@@ -45,6 +45,8 @@ set nocompatible
 
   Bundle "garbas/vim-snipmate"
 
+  Bundle 'lunaru/vim-less'
+
   Bundle 'L9'
   Bundle 'FuzzyFinder'
   Bundle 'mileszs/ack.vim'
