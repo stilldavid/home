@@ -66,7 +66,7 @@ alias tsite='tail -f ~/Code/live/log/site_log';
 alias cds='cd $CODE_DIR';
 alias cdl='cd /usr/local/';
 alias bell='echo -n ';
-alias sg='cd $CODE_DIR; ./burn sparkgen; cd -'
+alias sg='cd $CODE_DIR; ./burn sparkgen --no-syntax-check; cd -'
 alias dev='ssh -A dave-dev'
 
 # git stuff
