@@ -16,7 +16,7 @@ config resizePercentOf screenSize
 #bind down:ctrl;alt   resize +0   -10% bottom-right
 
 # Aliases
-alias main move screenSizeX/9;screenOriginY 7*screenSizeX/9;screenSizeY 1
+alias main move screenSizeX/4;screenOriginY 7*screenSizeX/13;screenSizeY
 
 # Push Bindings
 bind right:ctrl;cmd  push right bar-resize:screenSizeX/2
