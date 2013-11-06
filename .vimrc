@@ -36,6 +36,8 @@ set nocompatible
   Bundle 'chriskempson/vim-tomorrow-theme.git'
   Bundle 'ColorSchemeMenuMaker'
 
+  Bundle "sudar/vim-arduino-syntax"
+
   " match lots of things
   Bundle 'edsono/vim-matchit'
 
