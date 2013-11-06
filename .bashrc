@@ -45,7 +45,6 @@ esac
 # ruby/rails stuff
 alias r='rails'
 
-alias ack='ack-grep'
 alias ai='ack-grep -i'
 
 alias ls='/bin/ls -Gp';
