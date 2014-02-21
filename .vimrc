@@ -55,6 +55,10 @@ set nocompatible
   " Bundle 'surround.vim'
   Bundle 'ctrlp.vim'
 
+  Bundle 'scrooloose/syntastic'
+  let g:syntastic_check_on_open = 1
+  let g:syntastic_php_checkers = ['php']
+
 " </vundle-config>
 
 syntax on
