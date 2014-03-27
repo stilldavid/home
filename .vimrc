@@ -55,6 +55,8 @@ set nocompatible
   " Bundle 'surround.vim'
   Bundle 'ctrlp.vim'
 
+  Bundle 'majutsushi/tagbar'
+
   Bundle 'scrooloose/syntastic'
   let g:syntastic_check_on_open = 1
   let g:syntastic_php_checkers = ['php']
@@ -73,6 +75,11 @@ set lcs+=nbsp:.    "show non breaking spaces
 
 " trailing whitespace remover
 "autocmd BufWritePre *.php :%s/\s\+$//e
+"
+" add git status to statusline; otherwise emulate standard line with ruler
+set statusline=%<%{fugitive#statusline()}\ %f\ %{tagbar#currenttag('%s()','')}\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+set ls=2
+
 
 " font
 if has("gui_macvim")
@@ -160,6 +167,7 @@ map <F3> :NERDTreeFind<CR>
 " tab navigation like firefox
 :nmap <C-S-tab> :tabprevious<CR>
 :nmap <C-tab> :tabnext<CR>
+:nmap <F6> :TagbarToggle<CR>
 :map <C-S-tab> :tabprevious<CR>
 :map <C-tab> :tabnext<CR>
 :imap <C-S-tab> <Esc>:tabprevious<CR>i
