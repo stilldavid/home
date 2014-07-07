@@ -30,6 +30,7 @@ set nocompatible
   " commands for surrounding chars
   Bundle 'tpope/vim-surround'
   Bundle 'tpope/vim-repeat'
+  Bundle 'tpope/vim-markdown'
 
   Bundle 'scrooloose/nerdcommenter'
 
