@@ -30,6 +30,7 @@ set nocompatible
   " commands for surrounding chars
   Bundle 'tpope/vim-surround'
   Bundle 'tpope/vim-repeat'
+  Bundle 'tpope/vim-rsi'
 
   " a bunch of colorschemes + a gui menu listing them
   Bundle 'altercation/vim-colors-solarized'
@@ -114,7 +115,7 @@ set history=1500
 " search 
 set incsearch
 set ignorecase
-"set smartcase
+set smartcase
 "set gdefault
 "set incsearch
 "set showmatch
