@@ -65,7 +65,7 @@ alias tsite='tail -f ~/Code/live/log/site_log';
 alias cds='cd $CODE_DIR';
 alias cdl='cd /usr/local/';
 alias bell='echo -n ';
-alias sg='cd $CODE_DIR; ./burn sparkgen --no-syntax-check; cd -'
+alias sg='cd $CODE_DIR; ./sparktask sparkgen --no-syntax-check; cd -'
 alias dev='ssh -A dave-dev'
 
 alias tags='ctags -R --exclude=ckeditor --exclude="jquery*" --exclude="*.js" --exclude="*.sql" .'
@@ -143,3 +143,4 @@ export GEM_HOME='/usr/local'
 
 EDITOR=vim;
 export EDITOR
+eval "$(grunt --completion=bash)"
