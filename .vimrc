@@ -31,6 +31,9 @@ set nocompatible
   Bundle 'tpope/vim-surround'
   Bundle 'tpope/vim-repeat'
   Bundle 'tpope/vim-rsi'
+  Bundle 'tpope/vim-markdown'
+
+  Bundle 'scrooloose/nerdcommenter'
 
   " a bunch of colorschemes + a gui menu listing them
   Bundle 'altercation/vim-colors-solarized'
@@ -49,6 +52,7 @@ set nocompatible
   Bundle "garbas/vim-snipmate"
 
   Bundle 'lunaru/vim-less'
+  Bundle 'kchmck/vim-coffee-script'
 
   Bundle 'L9'
   Bundle 'FuzzyFinder'
