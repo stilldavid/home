@@ -41,6 +41,8 @@ set nocompatible
   Bundle 'ColorSchemeMenuMaker'
 
   Bundle "sudar/vim-arduino-syntax"
+  Bundle 'fatih/vim-go'
+  Bundle 'mustache/vim-mustache-handlebars'
 
   " match lots of things
   Bundle 'edsono/vim-matchit'
