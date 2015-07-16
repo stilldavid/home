@@ -90,7 +90,6 @@ set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 set statusline=%<%{fugitive#statusline()}\ %f\ %{tagbar#currenttag('%s()','')}\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 set ls=2
 
-
 " font
 if has("gui_macvim")
   set guifont=Monaco:h10
@@ -164,6 +163,8 @@ au FileType make setlocal noexpandtab
 
 " split lines under the cursor
 map K i<CR><Esc>g;
+
+map <F9> :set invhlsearch<CR>:set invcursorcolumn<CR>:set invcursorline<CR>
 
 " split window navigation (ctrl-j/k)
 map <C-J> <C-W>j
