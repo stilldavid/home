@@ -44,6 +44,7 @@ esac
 
 # ruby/rails stuff
 alias r='rails'
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 alias ai='ack-grep -i'
 
