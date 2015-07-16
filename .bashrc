@@ -63,6 +63,8 @@ alias tunh="ssh -fND localhost:1337 stilldavid.dyndns.org";
 alias gcb='grep -r "$1" ~/Code/live/codebase/ | grep -v "svn"';
 alias tsite='tail -f ~/Code/live/log/site_log';
 alias cds='cd $CODE_DIR';
+alias cdg='cd $GOPATH';
+alias cdz='cd $GOPATH/src/github.com/blankslatesystems/zoteserver'
 alias cdl='cd /usr/local/';
 alias bell='echo -n ';
 alias sg='cd $CODE_DIR; ./sparktask sparkgen --no-syntax-check; cd -'
@@ -140,6 +142,10 @@ PROMPT_COMMAND=prompt_func
 # PS1="[\u@\h:\w]\$(parse_git_branch)\$ "
 
 export GEM_HOME='/usr/local'
+
+export GOPATH=/Users/dave/Code/go
+export PATH=$GOPATH/bin:$PATH
+export PATH=~/bin:$PATH
 
 EDITOR=vim;
 export EDITOR

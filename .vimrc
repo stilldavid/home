@@ -73,10 +73,13 @@ filetype plugin on
 filetype indent on
 
 set list
-set lcs=tab:>.     "show tabs
+set lcs=tab:>-     "show tabs
 set lcs+=trail:·   "show trailing spaces
 set lcs+=extends:# "show line wrap
 set lcs+=nbsp:.    "show non breaking spaces
+
+" go lint
+set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 
 " trailing whitespace remover
 "autocmd BufWritePre *.php :%s/\s\+$//e
@@ -129,7 +132,7 @@ set smartcase
 
 " display tab characters as 8 spaces, indent 2 spaces,
 " always use spaces instead of tabs
-set tabstop=8
+set tabstop=4
 set shiftwidth=2
 set softtabstop=2
 set expandtab
