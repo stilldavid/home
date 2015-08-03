@@ -142,8 +142,6 @@ PROMPT_COMMAND=prompt_func
 
 # PS1="[\u@\h:\w]\$(parse_git_branch)\$ "
 
-export GEM_HOME='/usr/local'
-
 export GOPATH=/Users/dave/Code/go
 export PATH=$GOPATH/bin:$PATH
 export PATH=~/bin:$PATH
