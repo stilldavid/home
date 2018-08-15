@@ -1,78 +1,56 @@
 set nocompatible
+filetype off
 
-" this sets up vundle to manage plugins
-" https://github.com/gmarik/vundle
-" to use:
-"   mkdir -p ~/.vim/bundle
-"   git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-"   vim +BundleInstall
-
-" <vundle-config>
-
-  filetype off
-
-  set rtp+=~/.vim/bundle/vundle/
-  call vundle#rc()
+call plug#begin('~/.vim/plugged')
 
   " let Vundle manage Vundle - required
-  Bundle 'gmarik/vundle'
+  Plug 'VundleVim/Vundle.vim'
 
   " really nice file tree:
-  Bundle 'scrooloose/nerdtree'
-
-  " align text vertically on a string:
-  Bundle 'Align'
+  Plug 'scrooloose/nerdtree'
 
   " wrap common version control commands:
-  Bundle 'vcscommand.vim'
-  Bundle 'tpope/vim-fugitive'
+  Plug 'tpope/vim-fugitive'
 
   " commands for surrounding chars
-  Bundle 'tpope/vim-surround'
-  Bundle 'tpope/vim-repeat'
-  Bundle 'tpope/vim-rsi'
-  Bundle 'tpope/vim-markdown'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-repeat'
+  Plug 'tpope/vim-rsi'
+  Plug 'tpope/vim-markdown'
 
-  Bundle 'scrooloose/nerdcommenter'
+  Plug 'scrooloose/nerdcommenter'
 
   " a bunch of colorschemes + a gui menu listing them
-  Bundle 'altercation/vim-colors-solarized'
-  Bundle 'chriskempson/vim-tomorrow-theme.git'
-  Bundle 'ColorSchemeMenuMaker'
+  Plug 'altercation/vim-colors-solarized'
+  Plug 'chriskempson/base16-vim'
 
-  Bundle "sudar/vim-arduino-syntax"
-  Bundle 'fatih/vim-go'
-  Bundle 'mustache/vim-mustache-handlebars'
+  " Plug 'sudar/vim-arduino-syntax'
+  Plug 'fatih/vim-go'
+  Plug 'mustache/vim-mustache-handlebars'
 
-  " match lots of things
-  Bundle 'edsono/vim-matchit'
+  " Plug 'nvie/vim-flake8'
 
-  Bundle "MarcWeber/vim-addon-mw-utils"
-  Bundle "tomtom/tlib_vim"
-  Bundle "stilldavid/vim-snippets"
+  Plug 'davidhalter/jedi-vim'
 
-  Bundle "garbas/vim-snipmate"
+  Plug 'MarcWeber/vim-addon-mw-utils'
+  Plug 'tomtom/tlib_vim'
 
-  Bundle 'lunaru/vim-less'
-  Bundle 'kchmck/vim-coffee-script'
+  Plug 'garbas/vim-snipmate'
 
-  Bundle 'L9'
-  Bundle 'FuzzyFinder'
-  Bundle 'mileszs/ack.vim'
-  " Bundle 'surround.vim'
-  Bundle 'ctrlp.vim'
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
 
-  Bundle 'majutsushi/tagbar'
+  Plug 'majutsushi/tagbar'
 
-  Bundle 'scrooloose/syntastic'
+  Plug 'scrooloose/syntastic'
   let g:syntastic_check_on_open = 1
   let g:syntastic_php_checkers = ['php']
+  let g:syntastic_python_checkers = ['flake8']
 
-" </vundle-config>
+call plug#end()
 
 syntax on
-filetype plugin on
-filetype indent on
+filetype plugin indent on
 
 set list
 set lcs=tab:>-     "show tabs
@@ -143,9 +121,24 @@ set smartindent
 
 " leader keys
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
-nnoremap <leader>a :Ack
+nnoremap <leader>a :Ag
 nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:let @/=''<CR>
 nnoremap <leader>F /{/+1<CR>vi{:sort<CR>
+
+nnoremap <C-p> :FZF<cr>
+
+
+"vim general ignores
+set wildignore+=*.so,*.swp,*.zip,*.exe,*.dll,*.pyc,*.pdf,*.dvi,*.aux
+set wildignore+=*.png,*.jpg,*.gif
+
+let g:extesions_ignore = ['exe'
+            \'bcf', 'bbl', 'blg', 'fdb_latexmk', 'gls', 'glg', 'alg', 'acr',
+            \'run.xml', 'ist', 'glo', 'upb', 'upa', 'acn', 'svg', 'jpeg', 'jpg',
+            \'png', 'pyc', '*.pyc']
+let g:ignore_fzf = ['build', 'node_modules', 'venv', 'python2_source',
+            \'_minted-', '.sass-cache', 'dist',
+            \'.git', '.svn', '.hg', '.keep']
 
 " Map <CTRL>-O to run PHP parser check
 noremap <C-O> :!php -l %<CR>
@@ -174,6 +167,8 @@ map <C-L> <C-W>l
 
 map <F2> :NERDTreeToggle<CR>
 map <F3> :NERDTreeFind<CR>
+
+nnoremap <F4> :noh<CR>
 
 " tab navigation like firefox
 :nmap <C-S-tab> :tabprevious<CR>
@@ -206,14 +201,16 @@ au BufWinLeave notes mkview
 au BufWinEnter notes silent loadview
 
 " colorscheme Murphy
-colorscheme Tomorrow-Night
-if has("gui_macvim")
-  set transparency=5
-  set background=dark
-else
-  colorscheme Tomorrow
-  set background=light
-endif
+let base16colorspace=256  " Access colors present in 256 colorspace
+" set termguicolors
+colorscheme base16-tomorrow-night
+" if has("gui_running")
+"   " set transparency=5
+"   set background=dark
+" else
+"   colorscheme Tomorrow
+"   set background=light
+" endif
 
 "F7 WordProcessorOn
 :map <F7> :set linebreak <CR> :set display+=lastline <CR> :set wrap <CR> :setlocal spell spelllang=en_us <CR>

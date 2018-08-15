@@ -148,4 +148,8 @@ export PATH=~/bin:$PATH
 
 EDITOR=vim;
 export EDITOR
-eval "$(grunt --completion=bash)"
+#eval "$(grunt --completion=bash)"
+
+source /usr/local/bin/virtualenvwrapper.sh
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
