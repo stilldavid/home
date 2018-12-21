@@ -29,6 +29,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'mustache/vim-mustache-handlebars'
 
   " Plug 'nvie/vim-flake8'
+  Plug 'Vimjas/vim-python-pep8-indent'
+
+  Plug 'pangloss/vim-javascript'
 
   Plug 'davidhalter/jedi-vim'
 
@@ -42,12 +45,18 @@ call plug#begin('~/.vim/plugged')
 
   Plug 'majutsushi/tagbar'
 
-  Plug 'scrooloose/syntastic'
-  let g:syntastic_check_on_open = 1
-  let g:syntastic_php_checkers = ['php']
-  let g:syntastic_python_checkers = ['flake8']
+  " Plug 'scrooloose/syntastic'
+  " let g:syntastic_check_on_open = 1
+  " let g:syntastic_php_checkers = ['php']
+  " let g:syntastic_python_checkers = ['flake8']
+
+  Plug 'w0rp/ale'
+
+  Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
+
+set encoding=UTF-8
 
 syntax on
 filetype plugin indent on
@@ -112,8 +121,8 @@ set smartcase
 " display tab characters as 8 spaces, indent 2 spaces,
 " always use spaces instead of tabs
 set tabstop=4
-set shiftwidth=2
-set softtabstop=2
+set shiftwidth=4
+set softtabstop=4
 set expandtab
 set autoindent
 set smarttab
@@ -167,6 +176,8 @@ map <C-L> <C-W>l
 
 map <F2> :NERDTreeToggle<CR>
 map <F3> :NERDTreeFind<CR>
+
+let NERDTreeIgnore = ['\.pyc$', '__pycache__', '__pycache__']
 
 nnoremap <F4> :noh<CR>
 
